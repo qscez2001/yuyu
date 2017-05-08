@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     @IBAction func decimalEntered(sender: UIButton) {
         
         let digit = sender.currentTitle!
-        if dotTyped {
+        if !dotTyped {
             if userisInTheMiddleOfTyping {
                 if (display.text!.rangeOfString(".") == nil) {
                     display.text = display.text!.stringByAppendingString(digit)
@@ -41,7 +41,6 @@ class ViewController: UIViewController {
                     display.text! = "0" + digit
                 }
             }
-            userisInTheMiddleOfTyping = true
         }
         dotTyped = true
     }
@@ -76,7 +75,6 @@ class ViewController: UIViewController {
         userisInTheMiddleOfTyping = false
         dotTyped = false
         brain.clean()
-        displayValue = brain.result
         display.text = "0"
 
     }
